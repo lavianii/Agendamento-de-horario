@@ -5,11 +5,19 @@ import java.util.Objects;
 public  class PessoaDbo {
     private String nome;
     private int idade;
+    private int pessoaId;
+
+    public PessoaDbo()  {
+    }
+
 
     public PessoaDbo(String nome, int idade) throws Exception {
-
         this.setNome(nome);
         this.setIdade(idade);
+    }
+
+    public void setPessoaId(int pessoaId) {
+        this.pessoaId = pessoaId;
     }
 
     public void setNome(String nome) throws Exception{
@@ -32,10 +40,17 @@ public  class PessoaDbo {
         return idade;
     }
 
+    public int getPessoaId(){
+        return  pessoaId;
+    }
+
     @Override
     public String toString() {
-        return  "Nome: " + nome + '\'' +
-                "Idade:" + idade;
+        return  "------------------------------------\n" +
+                "Código:" + pessoaId + "\n" +
+                "Nome: " + nome + "\n" +
+                "Idade:" + idade +
+                "\n------------------------------------";
     }
 
     @Override
