@@ -13,13 +13,15 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 - [Connector-mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java)
 
 ## Configuração do Ambiente
-1. **Verifique a instalação do JDK**
+**1. Verifique a instalação do JDK**
+
 Certifique-se de que o JDK está instalado corretamente e que o `JAVA_HOME` está configurado:
 ```sh
 java -version
 ```
 
-2. **Clone o Repositório**
+**2. Clone o Repositório**
+   
 Clone o repositório do projeto para o seu ambiente local:
 
 ```sh
