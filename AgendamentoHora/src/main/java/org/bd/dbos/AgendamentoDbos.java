@@ -4,7 +4,6 @@ import org.bd.Enums.DiaDaSemana;
 import org.bd.Enums.HorarioDisponivel;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class AgendamentoDbos {
@@ -78,9 +77,7 @@ public class AgendamentoDbos {
 
     @Override
     public String toString() {
-        return  "Ano: " + anoAgendamento +
-                "Dia" + diaDaSemanaId +
-                "Horário" + horarioDisponivelId;
+        return  "\nAno: " + getAnoAgendamento();
     }
 
     @Override
