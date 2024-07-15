@@ -40,27 +40,4 @@ public enum HorarioDisponivel {
         return numero;
     }
 
-    public static int obterHora() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o número do horário desejado: ");
-        int numeroEscolhido = scanner.nextInt();
-
-        try {
-            String horaEscolhida = obterHoraPorNumero(numeroEscolhido);
-            System.out.println("Você escolheu o horário: " + horaEscolhida);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return numeroEscolhido;
-    }
-
-    public static String obterHoraPorNumero(int numero) {
-        for (HorarioDisponivel horario : HorarioDisponivel.values()) {
-            if (horario.getNumero() == numero) {
-                return horario.getHora();
-            }
-        }
-        throw new IllegalArgumentException("Número inválido: " + numero);
-    }
 }

@@ -7,7 +7,8 @@ public class AgendaMarcadaDbos {
     private int pessoaId;
     private int agendamentoId;
 
-    public AgendaMarcadaDbos(){}
+    public AgendaMarcadaDbos() {
+    }
 
     public AgendaMarcadaDbos(int pessoaId, int agendaMarcadaId) {
 
@@ -50,10 +51,13 @@ public class AgendaMarcadaDbos {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         AgendaMarcadaDbos that = (AgendaMarcadaDbos) o;
-        return agendaMarcadaId == that.agendaMarcadaId && pessoaId == that.pessoaId && agendamentoId == that.agendamentoId;
+        return agendaMarcadaId == that.agendaMarcadaId && pessoaId == that.pessoaId
+                && agendamentoId == that.agendamentoId;
     }
 
     @Override

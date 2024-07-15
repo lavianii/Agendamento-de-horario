@@ -6,7 +6,6 @@ import org.bd.daos.PessoaDaos;
 import org.bd.dbos.AgendamentoDbos;
 import org.bd.dbos.PessoaDbo;
 
-
 public class Menu {
 
     public void exibirMenu() throws Exception {

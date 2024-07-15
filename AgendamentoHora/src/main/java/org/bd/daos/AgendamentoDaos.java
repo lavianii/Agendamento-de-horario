@@ -60,7 +60,6 @@ public class AgendamentoDaos {
         }
     }
 
-
     public static int getById(int pessoaId) throws Exception {
         connection = new BdConnection().conectBd();
         int agendamento_id = 0;

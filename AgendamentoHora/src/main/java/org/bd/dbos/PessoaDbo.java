@@ -2,14 +2,13 @@ package org.bd.dbos;
 
 import java.util.Objects;
 
-public  class PessoaDbo {
+public class PessoaDbo {
     private String nome;
     private int idade;
     private int pessoaId;
 
-    public PessoaDbo()  {
+    public PessoaDbo() {
     }
-
 
     public PessoaDbo(String nome, int idade) throws Exception {
         this.setNome(nome);
@@ -20,14 +19,14 @@ public  class PessoaDbo {
         this.pessoaId = pessoaId;
     }
 
-    public void setNome(String nome) throws Exception{
+    public void setNome(String nome) throws Exception {
         if (nome == null || nome.isEmpty())
-            throw new Exception ("Nome não fornecido");
+            throw new Exception("Nome não fornecido");
         this.nome = nome;
     }
 
     public void setIdade(int idade) throws Exception {
-        if(idade < 5)
+        if (idade < 5)
             throw new Exception("A idade inválida");
         this.idade = idade;
     }
@@ -40,13 +39,13 @@ public  class PessoaDbo {
         return idade;
     }
 
-    public int getPessoaId(){
-        return  pessoaId;
+    public int getPessoaId() {
+        return pessoaId;
     }
 
     @Override
     public String toString() {
-        return  "------------------------------------\n" +
+        return "------------------------------------\n" +
                 "Código:" + pessoaId + "\n" +
                 "Nome: " + nome + "\n" +
                 "Idade:" + idade +
@@ -55,8 +54,10 @@ public  class PessoaDbo {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         PessoaDbo pessoaDbo = (PessoaDbo) o;
         return idade == pessoaDbo.idade && Objects.equals(nome, pessoaDbo.nome);
     }

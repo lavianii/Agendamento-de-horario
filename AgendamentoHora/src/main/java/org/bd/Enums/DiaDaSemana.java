@@ -22,7 +22,7 @@ public enum DiaDaSemana {
         return diaSemanaId;
     }
 
-    public  String getNomeSemana() {
+    public String getNomeSemana() {
         return nomeSemana;
     }
 }

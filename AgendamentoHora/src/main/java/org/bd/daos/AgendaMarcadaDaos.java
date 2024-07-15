@@ -16,13 +16,10 @@ public class AgendaMarcadaDaos {
     public static void postAgendaMarcada(AgendaMarcadaDbos agendaMarcada) throws Exception {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        var agendamentoId = AgendamentoDaos.getById(agendaMarcada.getPessoaId());
 
         try {
-            if (agendaMarcada == null) {
-                throw new IllegalArgumentException("Os dados não foram fornecidos");
-            }
-
-            if (!verificaExistenciaAgendamento(agendaMarcada.getAgendamentoId())) {
+            if (!verificaExistenciaAgendamento(agendamentoId)) {
                 throw new IllegalArgumentException("O agendamento_id especificado não existe na tabela agendamento");
             }
 
@@ -32,14 +29,14 @@ public class AgendaMarcadaDaos {
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, agendaMarcada.getPessoaId());
-            preparedStatement.setInt(2, agendaMarcada.getAgendamentoId());
+            preparedStatement.setInt(2, agendamentoId);
             preparedStatement.execute();
 
             System.out.println("Agendado com sucesso!");
 
         } catch (Exception ex) {
             System.out.println("Houve um problema no agendamento: " + ex.getMessage());
-            throw ex; // Lança a exceção para ser tratada no código cliente, se necessário
+            throw ex;
         } finally {
             try {
                 if (preparedStatement != null) {
@@ -75,9 +72,12 @@ public class AgendaMarcadaDaos {
             throw new SQLException("Erro ao verificar existência do agendamento", ex);
         } finally {
             try {
-                if (resultSet != null) resultSet.close();
-                if (preparedStatement != null) preparedStatement.close();
-                if (connection != null) connection.close();
+                if (resultSet != null)
+                    resultSet.close();
+                if (preparedStatement != null)
+                    preparedStatement.close();
+                if (connection != null)
+                    connection.close();
             } catch (SQLException e) {
                 System.out.println("Erro ao fechar recursos: " + e.getMessage());
             }
@@ -88,7 +88,7 @@ public class AgendaMarcadaDaos {
 
     public static ArrayList<Object> getAll() throws Exception {
         connection = new BdConnection().conectBd();
-        var agendaMarcada = new ArrayList<Object>();
+        var agendaMarcada = new ArrayList<>();
 
         try {
             String sql = "SELECT " +
@@ -105,7 +105,7 @@ public class AgendaMarcadaDaos {
             var st = connection.prepareStatement(sql);
             ResultSet result = st.executeQuery();
 
-            while (result.next()){;
+            while (result.next()) {
                 var pessoa = new PessoaDbo();
                 var agendamento = new AgendamentoDbos();
                 var diaSemana = new DiaSemanaDbo();
@@ -121,7 +121,7 @@ public class AgendaMarcadaDaos {
             result.close();
             connection.close();
             preparedStatement.close();
-        } catch (Exception ex){
+        } catch (Exception ex) {
             throw new Exception("Erro ao procurar a pessoa");
         }
 
