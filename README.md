@@ -1,7 +1,7 @@
 
 # Sistema de Agendamento de Horário simples
 
-Um Sistema de Agendamento de Horário, onde você consegue cadastrar um cliente, agendar um horário para esse cliente e visualizar a hora, dia e o para cliente foi reservado. 
+Um Sistema de Agendamento de Horário, onde você consegue cadastrar um cliente, agendar um horário para esse cliente e visualizar a hora, dia de quando foi reservado. 
 Esse projeto foi feito para disciplina de `Programação Orientada a Objeto em JAVA`
 
 
